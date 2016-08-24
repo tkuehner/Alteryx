@@ -1,0 +1,400 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.5">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+        <Position x="222" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields>
+            <Field field="Orbis ID" selected="True" />
+            <Field field="ConsolidationCode" selected="True" />
+            <Field field="Country ISO Code 2d Company" selected="True" />
+            <Field field="Currency" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field1" size="3" source="Formula: 	IF GetWord([_CurrentField_], 0) = &quot;NA&quot;&#xA;	THEN NULL()&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;	" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BasicDataProfile.BasicDataProfile">
+        <Position x="402" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Limit_UniqueCount>10000000</Limit_UniqueCount>
+          <Limit_UniqueValuesSize>20</Limit_UniqueValuesSize>
+          <IsMetric value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBasicDataProfile" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="594" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="Variable Names" />
+          </GroupFields>
+          <HeaderField field="Name" />
+          <DataField field="Value" />
+          <Methods>
+            <Method method="First" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Variable Names" size="1073741823" source="CrossTab:Group:First:" type="V_WString" />
+            <Field name="Average" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Average_Length" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Count_Blank" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Count_Non_Null" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Count_Null" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Count_Unique" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Count_w__All_WS" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Count_w__Leading_WS" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Count_w__Trailing_WS" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="FieldDescription" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="FieldName" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="FieldSize" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="FieldSource" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="FieldType" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Histogram" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="HistogramMarginOfError" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Longest_Length" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Longest_Value" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Maximum" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Minimum" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Percentile25" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Percentile25MarginOfError" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Percentile50" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Percentile50MarginOfError" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Percentile75" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Percentile75MarginOfError" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Shortest__Non_Blank__Length" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Shortest_Value" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Standard_Deviation" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Unique_Values" size="1073741823" source="Field Statistics:" type="V_WString" />
+            <Field name="Variance" size="1073741823" source="Field Statistics:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Variable Names" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="690" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="25" MaxRecords="">c:\Data Audit Dummy File.xlsx|Sheet1</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Data Audit Dummy File.xlsx
+Table=Sheet1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="498" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="FieldName" selected="True" rename="Variable Names" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="150" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="CountryISO" />
+            <Field name="CompanyID" />
+            <Field name="ConsolidationCode" />
+            <Field name="Name" />
+            <Field name="Address 1" />
+            <Field name="Address 2" />
+            <Field name="Address 3" />
+            <Field name="Address 4" />
+            <Field name="Address 5" />
+            <Field name="PostCode" />
+            <Field name="City" />
+            <Field name="WorldRegion" />
+            <Field name="CountryRegion" />
+            <Field name="CountryName" />
+            <Field name="Phone" />
+            <Field name="WebSite" />
+            <Field name="Company_address1 (listed)" />
+            <Field name="Company_address2 (listed)" />
+            <Field name="Company_address3 (listed)" />
+            <Field name="Company_address4 (listed)" />
+            <Field name="Company_address5 (listed)" />
+            <Field name="company_zipcode (listed)" />
+            <Field name="company_city (listed)" />
+            <Field name="WorldRegion (listed)" />
+            <Field name="CountryRegion (listed)" />
+            <Field name="CountryName (listed)" />
+            <Field name="Company_address (trading)" />
+            <Field name="Company_address2 (trading)" />
+            <Field name="Company_address3 (trading)" />
+            <Field name="Company_address4 (trading)" />
+            <Field name="Company_address5 (trading)" />
+            <Field name="company_zipcode (trading)" />
+            <Field name="company_city (trading)" />
+            <Field name="WorldRegion (trading)" />
+            <Field name="CountryRegion (trading)" />
+            <Field name="CountryName (trading)" />
+            <Field name="QuotedStatus" />
+            <Field name="LegalStatus" />
+            <Field name="TopDescription" />
+            <Field name="LastYear" />
+            <Field name="IncorporationDate" />
+            <Field name="LastStatementDate" />
+            <Field name="Number of Available Years" />
+            <Field name="Operating Revenue/turnover" />
+            <Field name="P/L for period (=Net Income)" />
+            <Field name="Current Market Cap" />
+            <Field name="Employees" />
+            <Field name="ActiveIndicator" />
+            <Field name="Email" />
+            <Field name="Fax" />
+            <Field name="LegalForm" />
+            <Field name="InactiveSince" />
+            <Field name="NoRecent" />
+            <Field name="NACE Rev1.1 Primary code" />
+            <Field name="US SIC Primary code" />
+            <Field name="Peer Group Id" />
+            <Field name="Peer Group Name" />
+            <Field name="Peer Group Size" />
+            <Field name="Country Global UO1" />
+            <Field name="Company ID Global UO1" />
+            <Field name="Country ID Global UO2" />
+            <Field name="Company ID Global UO2" />
+            <Field name="OnAmadeus" />
+            <Field name="DBCompanyNumber" />
+            <Field name="VATNumber" />
+            <Field name="TradeRegisterNumber" />
+            <Field name="StatisticalCode" />
+            <Field name="CompanyIDNumber" />
+            <Field name="IPIdentificationNumber" />
+            <Field name="WVBCompanyNumber" />
+            <Field name="ISIN Number" />
+            <Field name="SEDOL Number" />
+            <Field name="VALOR Number" />
+            <Field name="Fitch Number (Banks)" />
+            <Field name="Fitch Number (Insurance)" />
+            <Field name="Template" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression><![CDATA[	IF GetWord([_CurrentField_], 0) = "NA"
+	THEN NULL()
+	ELSE [_CurrentField_]
+	ENDIF
+	]]></Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Replace NA</AnnotationText>
+          <DefaultAnnotationText><![CDATA[	IF GetWord([_CurrentField_], 0) = "NA"
+	THEN NULL()
+	ELSE [_...]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="318" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Numeric</FieldType>
+          <Fields orderChanged="False">
+            <Field name="*Unknown" />
+            <Field name="Orbis ID Length Median" selected="False" />
+            <Field name="ShareholderFunds" selected="False" />
+            <Field name="CashAndCashEquivalent" selected="False" />
+            <Field name="CashFlow" selected="False" />
+            <Field name="CreditPeriod" selected="False" />
+            <Field name="CurrentAssets" selected="False" />
+            <Field name="CurrentAssetsStock" selected="False" />
+            <Field name="CurrentRatio" selected="False" />
+            <Field name="EBITDA" selected="False" />
+            <Field name="EBITDAMargin" selected="False" />
+            <Field name="Gearing" selected="False" />
+            <Field name="GrossMargin" selected="False" />
+            <Field name="GrossProfit" selected="False" />
+            <Field name="Loans" selected="False" />
+            <Field name="LongTermDebt" selected="False" />
+            <Field name="OperatingRevenue" selected="False" />
+            <Field name="PLPeriod" selected="False" />
+            <Field name="ProfitMargin" selected="False" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression><![CDATA[	IF [_CurrentField_] = 0
+	THEN NULL()
+	ELSE [_CurrentField_]
+	ENDIF
+	]]></Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Replace 0</AnnotationText>
+          <DefaultAnnotationText><![CDATA[	IF [_CurrentField_] = 0
+	THEN NULL()
+	ELSE [_CurrentField_]
+...]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="42" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="Field1" />
+          </Fields>
+          <Data>
+            <r>
+              <c>abc</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="1" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>0 - Basic Data Profile Template Flow</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
