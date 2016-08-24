@@ -1,0 +1,1877 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.5">
+  <Nodes>
+    <Node ToolID="335">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="194" y="515.0001" width="100" height="40" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>runtime 1 min</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="383">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="2056" y="461.9999" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <AutoResetMode>ByName</AutoResetMode>
+          <MultiMetaInfo>
+            <MetaInfo name="#3">
+              <RecordInfo>
+                <Field description="A" name="Name" size="3" source="TextInput:" type="String" column="1" />
+                <Field description="A" name="Country" size="5" source="TextInput:" type="String" column="2" />
+                <Field description="A" name="City" size="5" source="TextInput:" type="String" column="3" />
+                <Field description="A" name="Source" size="2" source="Formula: &quot;A&quot;" type="String" column="4" />
+                <Field description="A" name="RecordID A" size="20" source="Formula: [Source]+[ID]" type="String" column="5" />
+                <Field description="B" name="RecordID B" size="20" source="Formula: [Source]+[ID]" type="String" column="6" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo name="#1">
+              <RecordInfo>
+                <Field description="A" name="Name" size="3" source="TextInput:" type="String" column="1" />
+                <Field description="A" name="Country" size="5" source="TextInput:" type="String" column="2" />
+                <Field description="A" name="City" size="5" source="TextInput:" type="String" column="3" />
+                <Field description="A" name="Source" size="2" source="Formula: &quot;A&quot;" type="String" column="4" />
+                <Field description="A" name="RecordID A" size="20" source="Formula: [Source]+[ID]" type="String" column="5" />
+                <Field description="B" name="RecordID B" size="20" source="Formula: [Source]+[ID]" type="String" column="6" />
+                <Field name="MatchScore" type="Byte" column="7" />
+                <Field name="MatchScore_Company Match" type="Byte" column="8" />
+                <Field name="MatchKey" size="254" type="V_String" column="9" />
+                <Field description="B" name="Name B" size="3" source="TextInput:" type="String" column="10" />
+                <Field description="B" name="Country B" size="5" source="TextInput:" type="String" column="11" />
+                <Field description="B" name="City B" size="3" source="TextInput:" type="String" column="12" />
+                <Field description="B" name="Source B" size="2" source="Formula: &quot;B&quot;" type="String" column="13" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo name="#2">
+              <RecordInfo>
+                <Field description="A" name="Name" size="3" source="TextInput:" type="String" column="1" />
+                <Field description="A" name="Country" size="5" source="TextInput:" type="String" column="2" />
+                <Field description="A" name="City" size="5" source="TextInput:" type="String" column="3" />
+                <Field description="A" name="RecordID A" size="20" source="Formula: [Source]+[ID]" type="String" column="5" />
+                <Field description="B" name="RecordID B" size="20" source="Formula: [Source]+[ID]" type="String" column="6" />
+                <Field description="B" name="Name B" size="3" source="TextInput:" type="String" column="10" />
+                <Field description="B" name="Country B" size="5" source="TextInput:" type="String" column="11" />
+                <Field description="B" name="City B" size="3" source="TextInput:" type="String" column="12" />
+                <Field description="B" name="Source B" size="2" source="Formula: &quot;B&quot;" type="String" column="13" />
+                <Field name="RecordID2" size="20" source="Summarize: GroupBy - RecordID2" type="String" column="14" />
+              </RecordInfo>
+            </MetaInfo>
+          </MultiMetaInfo>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>Manual</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="384">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2152" y="462" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">D:\output.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>output.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="54" y="54" width="1829" height="405" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Character Match and Join</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.FuzzyMatch.FuzzyMatch">
+            <Position x="1154" y="215" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RecordIdField>RecordID</RecordIdField>
+              <MatchThreshold value="30" />
+              <OutputScore value="True" />
+              <OutputKey value="True" />
+              <OutputUnmatched value="False" />
+              <OutputMakeGroup value="False" />
+              <GenerateKeys value="False" />
+              <MatchFields>
+                <MatchField>
+                  <FieldName>Country Match</FieldName>
+                  <Style Name="Custom">
+                    <KeyGeneration>
+                      <KeyFunction>WholeFieldUpper</KeyFunction>
+                      <UseWords value="False" />
+                      <IgnoreEmpty value="True" />
+                      <MaxKeyLen value="2" />
+                    </KeyGeneration>
+                    <Match>
+                      <MatchFunction>None</MatchFunction>
+                      <AdditionalMatchFunction>NoSpace</AdditionalMatchFunction>
+                      <WordStats />
+                      <NicknameFile />
+                      <NicknamePenalty value="15" />
+                      <MatchThreshold value="80" />
+                      <MatchWeight value="100" />
+                    </Match>
+                  </Style>
+                </MatchField>
+                <MatchField>
+                  <FieldName>City Match</FieldName>
+                  <Style Name="Custom">
+                    <KeyGeneration>
+                      <KeyFunction>AlNumUpper</KeyFunction>
+                      <UseWords value="False" />
+                      <IgnoreEmpty value="True" />
+                      <MaxKeyLen value="20" />
+                    </KeyGeneration>
+                    <Match>
+                      <MatchFunction>None</MatchFunction>
+                      <AdditionalMatchFunction>NoSpace</AdditionalMatchFunction>
+                      <WordStats />
+                      <NicknameFile />
+                      <NicknamePenalty value="15" />
+                      <MatchThreshold value="80" />
+                      <MatchWeight value="100" />
+                    </Match>
+                  </Style>
+                </MatchField>
+                <MatchField>
+                  <FieldName>Company Match</FieldName>
+                  <Style Name="Custom">
+                    <PreProcess name="Strip Punctuation">
+                      <Search>(['-])|(\s?[[:punct:]]\s?)</Search>
+                      <Replace />
+                    </PreProcess>
+                    <KeyGeneration>
+                      <KeyFunction>AlNumUpper</KeyFunction>
+                      <UseWords value="False" />
+                      <IgnoreEmpty value="True" />
+                      <MaxKeyLen value="20" />
+                    </KeyGeneration>
+                    <Match>
+                      <MatchFunction>BestOf</MatchFunction>
+                      <AdditionalMatchFunction>None</AdditionalMatchFunction>
+                      <WordStats />
+                      <NicknameFile />
+                      <NicknamePenalty value="15" />
+                      <MatchThreshold value="60" />
+                      <MatchWeight value="100" />
+                    </Match>
+                  </Style>
+                </MatchField>
+              </MatchFields>
+              <MergeMode value="True" />
+              <SourceIdField>Source</SourceIdField>
+            </Configuration>
+            <Annotation DisplayMode="1">
+              <Name />
+              <AnnotationText>Character</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFuzzyMatch" />
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1370" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="RecordID A" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="RecordID" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_ID" selected="False" />
+                    <SelectField field="Left_RecordID" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1466" y="263" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="RecordID2" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="RecordID B" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_RecordID2" selected="False" />
+                    <SelectField field="Left_RecordID" selected="False" />
+                    <SelectField field="Right_Name" selected="True" rename="Name B" />
+                    <SelectField field="Right_Country" selected="True" rename="Country B" />
+                    <SelectField field="Right_City" selected="True" rename="City B" />
+                    <SelectField field="Right_Source" selected="True" rename="Source B" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Join Fuzzy Match Character</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1226" y="143" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="RecordID2" order="Ascending" />
+                <Field field="MatchScore_Company Match" order="Descending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>RecordID2 - Ascending
+MatchScore_Company Match - Descending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1298" y="143" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="RecordID2" action="GroupBy" rename="RecordID2" />
+                <SummarizeField field="RecordID" action="First" rename="RecordID" />
+                <SummarizeField field="MatchScore" action="First" rename="MatchScore" />
+                <SummarizeField field="MatchScore_Company Match" action="First" rename="MatchScore_Company Match" />
+                <SummarizeField field="MatchKey" action="First" rename="MatchKey" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1082" y="167" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="998" y="143" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="True" rename="Company Match" />
+                <SelectField field="Country" selected="True" rename="Country Match" />
+                <SelectField field="City" selected="True" rename="City Match" />
+                <SelectField field="RecordID A" selected="True" rename="RecordID" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="8">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="998" y="191" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="True" rename="Name Match" />
+                <SelectField field="Country" selected="True" rename="Country Match" />
+                <SelectField field="City" selected="True" rename="City Match" />
+                <SelectField field="RecordID B" selected="True" rename="RecordID" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="11">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="170" y="102" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <StartValue>1</StartValue>
+              <FieldName>ID</FieldName>
+              <FieldType size="8">String</FieldType>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="123">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1562" y="83.00007" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="124">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1658" y="83" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="MatchScore_Company Match" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Company Match</AnnotationText>
+              <DefaultAnnotationText>MatchScore_Company Match - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="125">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1754" y="83.00003" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>D:\Alteryx_Temp\Temp\Engine_9008_23bd5188bf234d24ae81611022b59ef8_\Engine_952_fffdad52cf13433d888f6248c81e8508_.yxdb</TempFile>
+              <Layout>
+                <View1>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="269">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="822" y="174" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="Name" />
+                <Field field="Country" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="Name" />
+                <Field field="Country" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_Name" selected="False" />
+                    <SelectField field="Right_Country" selected="False" />
+                    <SelectField field="Right_City" selected="False" />
+                    <SelectField field="Right_Source" selected="False" />
+                    <SelectField field="Right_ID" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Join Name and Country</Name>
+              <AnnotationText>Name &amp;
+Country</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="270">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1082" y="311" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="280">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1550" y="162" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>MatchScore_Company Match</Field>
+                <Operator>&gt;=</Operator>
+                <Operands>
+                  <Operand>67</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[MatchScore_Company Match] &gt;= 67</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="281">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1742" y="150" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="283">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1658" y="347" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="False" />
+                <SelectField field="Country" selected="False" />
+                <SelectField field="City" selected="False" />
+                <SelectField field="Source" selected="False" />
+                <SelectField field="RecordID A" selected="False" />
+                <SelectField field="MatchScore" selected="False" />
+                <SelectField field="MatchScore_Company Match" selected="False" />
+                <SelectField field="MatchKey" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="284">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1562" y="383" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="True" rename="Name B" />
+                <SelectField field="Country" selected="True" rename="Country B" />
+                <SelectField field="City" selected="True" rename="City B" />
+                <SelectField field="Source" selected="True" rename="Source B" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="346">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="542" y="179" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="RecordID A" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="RecordID B" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_ID" selected="False" />
+                    <SelectField field="Right_Name" selected="False" />
+                    <SelectField field="Right_Country" selected="False" />
+                    <SelectField field="Right_City" selected="False" />
+                    <SelectField field="Right_Source" selected="False" />
+                    <SelectField field="Right_Field1" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Join RMPM</Name>
+              <AnnotationText>ID</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="347">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="974" y="323" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="348">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="434" y="131.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>RecordID A</Field>
+                <Operator>IsNotEmpty</Operator>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText />
+              <DefaultAnnotationText>!IsEmpty([RecordID A])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="349">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="626" y="119" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="350">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="434" y="220" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression><![CDATA[[RecordID B] = ""
+// !IsEmpty([RMPM Beneficiary])||
+// !IsNULL([RMPM Beneficiary])
+]]></Expression>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>RecordID B</Field>
+                <Operator>=</Operator>
+                <Operands>
+                  <Operand />
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText />
+              <DefaultAnnotationText>[RecordID B] = ""</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="351">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="642" y="222" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="353">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="254" y="101.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Source" type="String" size="2" expression="&quot;A&quot;" />
+                <FormulaField field="RecordID A" type="String" size="20" expression="[Source]+[ID]" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Delete White Space and numerics</AnnotationText>
+              <DefaultAnnotationText>Source="A"
+RecordID A=[Source]+[ID]</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="267">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="338" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="ID" selected="False" description="A" />
+                <SelectField field="Name" selected="True" description="A" />
+                <SelectField field="Country" selected="True" description="A" />
+                <SelectField field="City" selected="True" description="A" />
+                <SelectField field="Source" selected="True" description="A" />
+                <SelectField field="RecordID A" selected="True" description="A" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="357">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1742" y="390" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="358">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1814" y="378" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>D:\Alteryx_Temp\Temp\Engine_9008_23bd5188bf234d24ae81611022b59ef8_\Engine_952_4ac8f728525a4294b8510b0857cb6773_.yxdb</TempFile>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="388">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="928" y="113.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="420">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="64" y="102" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="Name" />
+                <Field name="Country" />
+                <Field name="City" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>abc</c>
+                  <c>dfsds</c>
+                  <c>afdsf</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="421">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="66" y="258" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="Name" />
+                <Field name="Country" />
+                <Field name="City" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>abc</c>
+                  <c>vcvcx</c>
+                  <c>dfs</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="422">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="150" y="246" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <StartValue>1</StartValue>
+              <FieldName>ID</FieldName>
+              <FieldType size="8">String</FieldType>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="423">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="246" y="246" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Source" type="String" size="2" expression="&quot;B&quot;" />
+                <FormulaField field="RecordID B" type="String" size="20" expression="[Source]+[ID]" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Delete White Space and numerics</AnnotationText>
+              <DefaultAnnotationText>Source="B"
+RecordID B=[Source]+[ID]</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="424">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="342" y="234" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="ID" selected="False" description="B" />
+                <SelectField field="Name" selected="True" description="B" />
+                <SelectField field="Country" selected="True" description="B" />
+                <SelectField field="City" selected="True" description="B" />
+                <SelectField field="Source" selected="True" description="B" />
+                <SelectField field="RecordID B" selected="True" description="B" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="429">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="714" y="126" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="Name" />
+                <Field field="Country" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Unique: Name, Country</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="430">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="702" y="222" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="Name" />
+                <Field field="Country" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Unique: Name, Country</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="431">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="954" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="382">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="484" y="505" width="1331" height="374" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption><![CDATA[Word Match - Country and Company Name ]]></Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="360">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.FuzzyMatch.FuzzyMatch">
+            <Position x="902" y="654.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RecordIdField>RecordID</RecordIdField>
+              <MatchThreshold value="30" />
+              <OutputScore value="True" />
+              <OutputKey value="True" />
+              <OutputUnmatched value="False" />
+              <OutputMakeGroup value="False" />
+              <GenerateKeys value="False" />
+              <MatchFields>
+                <MatchField>
+                  <FieldName>Country Match</FieldName>
+                  <Style Name="Custom">
+                    <KeyGeneration>
+                      <KeyFunction>AlNumUpper</KeyFunction>
+                      <UseWords value="False" />
+                      <IgnoreEmpty value="True" />
+                      <MaxKeyLen value="2" />
+                    </KeyGeneration>
+                    <Match>
+                      <MatchFunction>None</MatchFunction>
+                      <AdditionalMatchFunction>NoSpace</AdditionalMatchFunction>
+                      <WordStats />
+                      <NicknameFile />
+                      <NicknamePenalty value="15" />
+                      <MatchThreshold value="80" />
+                      <MatchWeight value="100" />
+                    </Match>
+                  </Style>
+                </MatchField>
+                <MatchField>
+                  <FieldName>City Match</FieldName>
+                  <Style Name="Custom">
+                    <KeyGeneration>
+                      <KeyFunction>AlNumUpper</KeyFunction>
+                      <UseWords value="False" />
+                      <IgnoreEmpty value="True" />
+                      <MaxKeyLen value="20" />
+                    </KeyGeneration>
+                    <Match>
+                      <MatchFunction>None</MatchFunction>
+                      <AdditionalMatchFunction>NoSpace</AdditionalMatchFunction>
+                      <WordStats />
+                      <NicknameFile />
+                      <NicknamePenalty value="15" />
+                      <MatchThreshold value="80" />
+                      <MatchWeight value="100" />
+                    </Match>
+                  </Style>
+                </MatchField>
+                <MatchField>
+                  <FieldName>Company Match</FieldName>
+                  <Style Name="Custom">
+                    <PreProcess name="Strip Punctuation">
+                      <Search>(['-])|(\s?[[:punct:]]\s?)</Search>
+                      <Replace />
+                    </PreProcess>
+                    <KeyGeneration>
+                      <KeyFunction>AlNumUpper</KeyFunction>
+                      <UseWords value="True" />
+                      <IgnoreWords />
+                      <IgnoreSingleLetterWords value="True" />
+                      <IgnoreEmpty value="True" />
+                      <MaxKeyLen value="6" />
+                    </KeyGeneration>
+                    <Match>
+                      <MatchFunction>BestOfTFIDF</MatchFunction>
+                      <AdditionalMatchFunction>None</AdditionalMatchFunction>
+                      <WordStats />
+                      <NicknameFile />
+                      <NicknamePenalty value="15" />
+                      <MatchThreshold value="60" />
+                      <MatchWeight value="100" />
+                    </Match>
+                  </Style>
+                </MatchField>
+              </MatchFields>
+              <MergeMode value="True" />
+              <SourceIdField>Source</SourceIdField>
+            </Configuration>
+            <Annotation DisplayMode="2">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFuzzyMatch" />
+        </Node>
+        <Node ToolID="361">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1190" y="570.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="RecordID A" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="RecordID" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_RecordID" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="362">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1286" y="666.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="RecordID2" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="RecordID B" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="363">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="998" y="582.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="RecordID2" order="Ascending" />
+                <Field field="MatchScore_Company Match" order="Descending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>RecordID2 - Ascending
+MatchScore_Company Match - Descending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="364">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1094" y="582.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="RecordID2" action="GroupBy" rename="RecordID2" />
+                <SummarizeField field="RecordID" action="First" rename="RecordID" />
+                <SummarizeField field="MatchScore" action="First" rename="MatchScore" />
+                <SummarizeField field="MatchScore_Company Match" action="First" rename="MatchScore_Company Match" />
+                <SummarizeField field="MatchKey" action="First" rename="MatchKey" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="365">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="806" y="606.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="367">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="710" y="642.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Name B" selected="True" rename="Company Match" />
+                <SelectField field="Country B" selected="True" rename="Country Match" />
+                <SelectField field="City B" selected="True" rename="City Match" />
+                <SelectField field="Source B" selected="True" rename="Source" />
+                <SelectField field="RecordID B" selected="True" rename="RecordID" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="368">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1382" y="558.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="369">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1466" y="546.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="MatchScore_Company Match" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Company Match</AnnotationText>
+              <DefaultAnnotationText>MatchScore_Company Match - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="370">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1550" y="546.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>D:\Alteryx_Temp\Temp\Engine_9008_23bd5188bf234d24ae81611022b59ef8_\Engine_952_aea0d23e95a94075a0b0cf2fe2fac8e9_.yxdb</TempFile>
+              <Layout>
+                <View1>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="372">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="494" y="642.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="373">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="510" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="374">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1662" y="810" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="377">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1374" y="630" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>MatchScore_Company Match</Field>
+                <Operator>&gt;=</Operator>
+                <Operands>
+                  <Operand>71</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[MatchScore_Company Match] &gt;= 71</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="381">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1562" y="618.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="425">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="702" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="True" rename="Company Match" />
+                <SelectField field="Country" selected="True" rename="Country Match" />
+                <SelectField field="City" selected="True" rename="City Match" />
+                <SelectField field="RecordID A" selected="True" rename="RecordID" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="426">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1470" y="738" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="False" />
+                <SelectField field="Country" selected="False" />
+                <SelectField field="City" selected="False" />
+                <SelectField field="Source" selected="False" />
+                <SelectField field="RecordID A" selected="False" />
+                <SelectField field="MatchScore" selected="False" />
+                <SelectField field="MatchScore_Company Match" selected="False" />
+                <SelectField field="MatchKey" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="427">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1530" y="810" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="True" rename="Name B" />
+                <SelectField field="Country" selected="True" rename="Country B" />
+                <SelectField field="City" selected="True" rename="City B" />
+                <SelectField field="Source" selected="True" rename="Source B" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="428">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1746" y="810" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>D:\Alteryx_Temp\Temp\Engine_9008_23bd5188bf234d24ae81611022b59ef8_\Engine_952_566e7fae5bf34be1b78129f40d69022d_.yxdb</TempFile>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="383" Connection="Output" />
+      <Destination ToolID="384" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Join" />
+      <Destination ToolID="3" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="431" Connection="Output" />
+      <Destination ToolID="3" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Join" />
+      <Destination ToolID="123" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Join" />
+      <Destination ToolID="280" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Right" />
+      <Destination ToolID="284" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="2" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="388" Connection="Output" />
+      <Destination ToolID="2" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="1" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="353" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="123" Connection="Output" />
+      <Destination ToolID="124" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="124" Connection="Output" />
+      <Destination ToolID="125" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="269" Connection="Join" />
+      <Destination ToolID="347" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="346" Connection="Join" />
+      <Destination ToolID="347" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="269" Connection="Left" />
+      <Destination ToolID="388" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="429" Connection="Duplicates" />
+      <Destination ToolID="388" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="269" Connection="Right" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="269" Connection="Right" />
+      <Destination ToolID="431" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="430" Connection="Duplicates" />
+      <Destination ToolID="431" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="270" Connection="Output" />
+      <Destination ToolID="383" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="281" Connection="Output" />
+      <Destination ToolID="383" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="381" Connection="Output" />
+      <Destination ToolID="383" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="280" Connection="False" />
+      <Destination ToolID="283" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="280" Connection="True" />
+      <Destination ToolID="281" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="283" Connection="Output" />
+      <Destination ToolID="357" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="284" Connection="Output" />
+      <Destination ToolID="357" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="346" Connection="Left" />
+      <Destination ToolID="349" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="348" Connection="True" />
+      <Destination ToolID="349" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="346" Connection="Right" />
+      <Destination ToolID="351" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="350" Connection="False" />
+      <Destination ToolID="351" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="347" Connection="Output" />
+      <Destination ToolID="270" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="348" Connection="False" />
+      <Destination ToolID="346" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="350" Connection="True" />
+      <Destination ToolID="346" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="349" Connection="Output" />
+      <Destination ToolID="429" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="351" Connection="Output" />
+      <Destination ToolID="430" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="353" Connection="Output" />
+      <Destination ToolID="267" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="267" Connection="Output" />
+      <Destination ToolID="348" Connection="Input" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="267" Connection="Output" />
+      <Destination ToolID="373" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="357" Connection="Output" />
+      <Destination ToolID="358" Connection="Input" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="357" Connection="Output" />
+      <Destination ToolID="372" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="388" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="420" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="421" Connection="Output" />
+      <Destination ToolID="422" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="422" Connection="Output" />
+      <Destination ToolID="423" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="423" Connection="Output" />
+      <Destination ToolID="424" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="424" Connection="Output" />
+      <Destination ToolID="350" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="429" Connection="Unique" />
+      <Destination ToolID="269" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="430" Connection="Unique" />
+      <Destination ToolID="269" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="360" Connection="Output" />
+      <Destination ToolID="363" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="361" Connection="Join" />
+      <Destination ToolID="362" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="372" Connection="Output" />
+      <Destination ToolID="362" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="362" Connection="Join" />
+      <Destination ToolID="368" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="362" Connection="Join" />
+      <Destination ToolID="377" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="362" Connection="Right" />
+      <Destination ToolID="427" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="363" Connection="Output" />
+      <Destination ToolID="364" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="364" Connection="Output" />
+      <Destination ToolID="361" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="373" Connection="Output" />
+      <Destination ToolID="361" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="365" Connection="Output" />
+      <Destination ToolID="360" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="367" Connection="Output" />
+      <Destination ToolID="365" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="425" Connection="Output" />
+      <Destination ToolID="365" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="368" Connection="Output" />
+      <Destination ToolID="369" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="369" Connection="Output" />
+      <Destination ToolID="370" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="372" Connection="Output" />
+      <Destination ToolID="367" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="373" Connection="Output" />
+      <Destination ToolID="425" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="374" Connection="Output" />
+      <Destination ToolID="428" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="377" Connection="True" />
+      <Destination ToolID="381" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="377" Connection="False" />
+      <Destination ToolID="426" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="426" Connection="Output" />
+      <Destination ToolID="374" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="427" Connection="Output" />
+      <Destination ToolID="374" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Template - Fuzzy Matching</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
