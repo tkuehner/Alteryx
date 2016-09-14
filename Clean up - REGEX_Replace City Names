@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.5">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="270" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Company Address City" type="String" size="16" expression="Trim(&#xA;REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(&#xA;[Company Address City]&#xA;,&quot;\s\s\s..$&quot; ,'')  // Special Treatment of Italy &quot;Rom     XX&quot;&#xA;,&quot;^\d\d\d\d\s..\s&quot; ,'')  // Special Treatment of Netherlands  &quot;1234 xx Amsterdam&quot;&#xA;,&quot;^\d\d\d\d..\s&quot; ,'')  // Special Treatment of Netherlands &quot;1234xx Amsterdam&quot;&#xA;,&quot;\s\d\d\d\d..$&quot; ,'')  // Special Treatment of Netherlands &quot;Amsterdam 1234xx&quot;&#xA;,&quot;\s\d\d\d\d\s..$&quot; ,'')  // Special Treatment of Netherlands &quot;Amsterdam 1234 xx&quot;&#xA;&#xA;)&#xA;&#xA;// Special Treatment of Italy&#xA;// &quot;\s\s\s..$&quot; Remove word of two chars with 3 whitespaces upfront at end of sentence &quot;_ &quot;&#xA;&#xA;// &quot;\d&quot; Remove digits&#xA;// &quot;\s.\s&quot; Remove single chars &quot;_ _&quot;&#xA;// &quot;^.\s&quot; Remove single chars at beginning of sentence &quot;_ &quot;&#xA;// &quot;\s.$&quot; Remove single chars at end of sentence &quot;_ &quot;" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Zip clean up and
+uppercase</AnnotationText>
+          <DefaultAnnotationText>Company Address City=Trim(
+REGEX_Replace(REGEX_Replace(REGEX_...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="162" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="5" />
+          <Fields>
+            <Field name="Company Address City" />
+          </Fields>
+          <Data>
+            <r>
+              <c>Bruessel 1234 AN</c>
+            </r>
+            <r>
+              <c>Bruessel 1234AN</c>
+            </r>
+            <r>
+              <c>Bruessel     AN</c>
+            </r>
+            <r>
+              <c>1234 AN Bruessel</c>
+            </r>
+            <r>
+              <c>1234AN Bruessel</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="390" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>D:\Alteryx_Temp\Engine_7288_12004087d7584e21a22c27448cd7b1d5_\Engine_6620_2ba27fd0fe4a438ca4a7e63da256569e_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="1" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>New Workflow16</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
