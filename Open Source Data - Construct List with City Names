@@ -1,0 +1,3330 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.5">
+  <Nodes>
+    <Node ToolID="168">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="54" y="522" width="2565" height="473" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>City Names from Wikipedia</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="26">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="64.00078" y="611" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">\City List Italy.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>City List Italy.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="64.00103" y="731.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">\City List Netherlands.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>City List Netherlands.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="44">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="810.0006" y="618" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Name" type="V_WString" size="60" expression="REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace([Name], &quot;Ä&quot;, &quot;ae&quot;),&quot;Ö&quot;,&quot;oe&quot;),&quot;Ü&quot;,&quot;ue&quot;),&quot;ß&quot;,&quot;ss&quot;),&quot;&quot;,&quot;&quot;),&quot;æ&quot;,&quot;ae&quot;),&quot;&quot;,&quot;ae&quot;),&quot;Þ&quot;,&quot;th&quot;),&quot;&quot;,&quot;ue&quot;),&quot;Ø&quot;,&quot;OE&quot;),'&quot;',&quot;&quot;),&quot; &quot;,&quot; &quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;́&quot;,&quot;&quot;),&quot;̤&quot;,&quot;&quot;),&quot;'&quot;,&quot;&quot;)&#xA;&#xA;// REGEX_Replace(" />
+                <FormulaField field="Name" type="V_WString" size="60" expression="Uppercase(Trim([Name]))" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Transform Special Chars</AnnotationText>
+              <DefaultAnnotationText>Name=REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(...
+Name=Uppercase(Trim([Name]))</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="45">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+            <Position x="510.0006" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Name</Field>
+              <RegExExpression value="\d" />
+              <CaseInsensitve value="True" />
+              <Method>Replace</Method>
+              <Replace expression="">
+                <CopyUnmatched value="True" />
+              </Replace>
+              <ParseSimple>
+                <SplitToRows value="False" />
+                <RootName>Name</RootName>
+                <NumFields value="3" />
+                <ErrorHandling>Warn</ErrorHandling>
+              </ParseSimple>
+              <ParseComplex>
+                <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+              </ParseComplex>
+              <Match>
+                <Field>Name_Matched</Field>
+                <ErrorUnmatched value="False" />
+              </Match>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Remove numbers</AnnotationText>
+              <DefaultAnnotationText><![CDATA[Replace:
+\d
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+        </Node>
+        <Node ToolID="46">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+            <Position x="606.0006" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Name</Field>
+              <RegExExpression value="\s.\s" />
+              <CaseInsensitve value="True" />
+              <Method>Replace</Method>
+              <Replace expression=" ">
+                <CopyUnmatched value="True" />
+              </Replace>
+              <ParseSimple>
+                <SplitToRows value="False" />
+                <RootName>Name</RootName>
+                <NumFields value="3" />
+                <ErrorHandling>Warn</ErrorHandling>
+              </ParseSimple>
+              <ParseComplex>
+                <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+              </ParseComplex>
+              <Match>
+                <Field>Name_Matched</Field>
+                <ErrorUnmatched value="False" />
+              </Match>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Remove one Characte words</AnnotationText>
+              <DefaultAnnotationText><![CDATA[Replace:
+\s.\s
+ ]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+        </Node>
+        <Node ToolID="47">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+            <Position x="702.0006" y="618" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldFind>Name</FieldFind>
+              <FieldSearch>Target</FieldSearch>
+              <ReplaceFoundField>Replace</ReplaceFoundField>
+              <FindMode>FindAny</FindMode>
+              <NoCase value="False" />
+              <MatchWholeWord value="False" />
+              <ReplaceMode>Replace</ReplaceMode>
+              <ReplaceMultipleFound value="True" />
+              <ReplaceAppendFields />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Replace Whitespaces and spec, Char</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+        </Node>
+        <Node ToolID="50">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="594.0005" y="702" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">\\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\Replace Character List.xlsx</File>
+              <FormatSpecificOptions>
+                <FirstRowData>False</FirstRowData>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Replace Character List.xlsx</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Target" size="255" source="File: \\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\Replace Character List.xlsx" type="V_WString" />
+                <Field name="Replace" size="255" source="File: \\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\Replace Character List.xlsx" type="V_String" />
+                <Field name="comment" size="255" source="File: \\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\Replace Character List.xlsx" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="58">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1134" y="558" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>D:\Alteryx_Temp\Temp\Engine_1680_c8ef1cbd775d4031a84be45496b8a1c9_\Engine_5604_ebb6b104d7494a3fbe5f2d12218d0a99_.yxdb</TempFile>
+              <Layout>
+                <View1>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="63">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="426.0005" y="606.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Name" type="V_WString" size="60" expression="uppercase([City Name EN])" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Name=uppercase([City Name EN])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="114">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="148.0007" y="731.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Country ISO Code 2d" type="String" size="5" expression="&quot;NL&quot;" />
+                <FormulaField field="City Name EN" type="V_String" size="44" expression="Replace([City Name EN],', Netherlands','')" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Country ISO Code 2d="NL"
+City Name EN=Replace([City Name EN],', Netherlands','')</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="115">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="148.0007" y="611.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Country ISO Code 2d" type="String" size="5" expression="&quot;IT&quot;" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Country ISO Code 2d="IT"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="116">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="354.0006" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="157">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="906.0006" y="618" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Name" type="V_WString" size="60" expression="ConvertToCodePage([Name], 20127 )" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Convert to ASCII Code page</AnnotationText>
+              <DefaultAnnotationText>Name=ConvertToCodePage([Name], 20127 )</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="167">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="990.0001" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="City Name EN" selected="False" />
+                <SelectField field="Name" selected="True" rename="City Name EN ASCII" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="110">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="1002" y="966" width="180.2677" height="19" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>Check for non ASCII Codes</Caption>
+              <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+              <Disabled value="True" />
+              <Folded value="True" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="153">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+                <Position x="1094" y="995" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Mode>Simple</Mode>
+                  <Simple>
+                    <Field>Name</Field>
+                    <Operator>Contains</Operator>
+                    <Operands>
+                      <Operand>?</Operand>
+                    </Operands>
+                  </Simple>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>Contains([Name],"?")</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+            </Node>
+            <Node ToolID="155">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+                <Position x="1288" y="995" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <TempFile>D:\Alteryx_Temp\Temp\Engine_1680_c8ef1cbd775d4031a84be45496b8a1c9_\Engine_5604_8db6ccd683ec4c5f9942aca9e87fadc7_.yxdb</TempFile>
+                  <Layout>
+                    <View1>
+                      <Hints>
+                        <Table />
+                      </Hints>
+                    </View1>
+                  </Layout>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+            </Node>
+            <Node ToolID="165">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+                <Position x="1012" y="1031" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Passwords />
+                  <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">\\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\Language ISO Codes.xlsx|`Sheet1$`</File>
+                  <FormatSpecificOptions>
+                    <FirstRowData>False</FirstRowData>
+                  </FormatSpecificOptions>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>Language ISO Codes.xlsx
+Table=`Sheet1$`</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+                <MetaInfo connection="Output">
+                  <RecordInfo>
+                    <Field name="Language" size="255" source="File: \\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\Language ISO Codes.xlsx|`Sheet1$`" type="V_WString" />
+                    <Field name="Language (local)" size="255" source="File: \\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\Language ISO Codes.xlsx|`Sheet1$`" type="V_WString" />
+                    <Field name="Wiki" size="255" source="File: \\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\Language ISO Codes.xlsx|`Sheet1$`" type="V_String" />
+                  </RecordInfo>
+                </MetaInfo>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+            </Node>
+            <Node ToolID="166">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+                <Position x="1202" y="1000" />
+              </GuiSettings>
+              <Properties>
+                <Configuration joinByRecordPos="False">
+                  <JoinInfo connection="Left">
+                    <Field field="Language" />
+                  </JoinInfo>
+                  <JoinInfo connection="Right">
+                    <Field field="Wiki" />
+                  </JoinInfo>
+                  <SelectConfiguration>
+                    <Configuration outputConnection="Join">
+                      <OrderChanged value="False" />
+                      <SelectFields>
+                        <SelectField field="Right_Language" selected="True" rename="Right_Language" />
+                        <SelectField field="Right_Language family" selected="False" />
+                        <SelectField field="Right_ISO Code 639‑1" selected="False" />
+                        <SelectField field="*Unknown" selected="True" />
+                      </SelectFields>
+                    </Configuration>
+                  </SelectConfiguration>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+            </Node>
+          </ChildNodes>
+        </Node>
+        <Node ToolID="147">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="640.0005" y="551" width="466.3751" height="19" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>Determine Countries to exclude from Wikipedia City names due to special characters</Caption>
+              <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+              <Disabled value="True" />
+              <Folded value="True" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="139">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+                <Position x="926.0005" y="592" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Mode>Simple</Mode>
+                  <Simple>
+                    <Field>code page</Field>
+                    <Operator>Contains</Operator>
+                    <Operands>
+                      <Operand>?</Operand>
+                    </Operands>
+                  </Simple>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>Contains([code page],"?")</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+            </Node>
+            <Node ToolID="140">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+                <Position x="1480" y="587" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <TempFile>D:\Alteryx_Temp\Temp\Engine_7504_07c06ddbc9724e36bcb45e4c2405bf01_\Engine_9560_d403a49a954648d5bcf25e058dd505a5_.yxdb</TempFile>
+                  <Layout>
+                    <View1>
+                      <Hints>
+                        <Table />
+                      </Hints>
+                    </View1>
+                  </Layout>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+            </Node>
+            <Node ToolID="141">
+              <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+                <Position x="1022" y="580" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <SummarizeFields>
+                    <SummarizeField field="Language" action="GroupBy" rename="Language" />
+                    <SummarizeField field="Name" action="GroupBy" rename="Name" />
+                  </SummarizeFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+            </Node>
+            <Node ToolID="142">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+                <Position x="1022" y="676" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <TempFile>D:\Alteryx_Temp\Temp\Engine_7504_07c06ddbc9724e36bcb45e4c2405bf01_\Engine_9560_78309afad4e34c78b44abdf550feade2_.yxdb</TempFile>
+                  <Layout>
+                    <View1>
+                      <Hints>
+                        <Table />
+                      </Hints>
+                    </View1>
+                  </Layout>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+            </Node>
+            <Node ToolID="144">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+                <Position x="830.0005" y="592" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <FormulaFields>
+                    <FormulaField field="code page" type="V_WString" size="60" expression="ConvertToCodePage([Name], 20127 )" />
+                  </FormulaFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>code page=ConvertToCodePage([Name], 20127 )</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+            </Node>
+            <Node ToolID="145">
+              <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+                <Position x="1118" y="580" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <SummarizeFields>
+                    <SummarizeField field="Language" action="GroupBy" rename="Language" />
+                    <SummarizeField field="Language" action="Count" rename="Count" />
+                  </SummarizeFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+            </Node>
+            <Node ToolID="146">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+                <Position x="1118" y="640" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <TempFile>D:\Alteryx_Temp\Temp\Engine_7504_07c06ddbc9724e36bcb45e4c2405bf01_\Engine_9560_e7791672890642feb34afff4725bc9be_.yxdb</TempFile>
+                  <Layout>
+                    <View1>
+                      <Hints>
+                        <Table />
+                      </Hints>
+                    </View1>
+                  </Layout>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+            </Node>
+            <Node ToolID="134">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+                <Position x="746.0005" y="604" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Field>Name</Field>
+                  <RegExExpression value="." />
+                  <CaseInsensitve value="True" />
+                  <Method>ParseSimple</Method>
+                  <Replace expression="">
+                    <CopyUnmatched value="True" />
+                  </Replace>
+                  <ParseSimple>
+                    <SplitToRows value="True" />
+                  </ParseSimple>
+                  <ParseComplex>
+                    <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+                  </ParseComplex>
+                  <Match>
+                    <Field>Name_Matched</Field>
+                    <ErrorUnmatched value="False" />
+                  </Match>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>Tokenize:
+.</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+            </Node>
+            <Node ToolID="135">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+                <Position x="650.0005" y="604" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="City Name EN" selected="False" />
+                    <SelectField field="Alternate City Name" selected="False" />
+                    <SelectField field="Inhabitants" selected="False" />
+                    <SelectField field="Country ISO Code 2d" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+            </Node>
+            <Node ToolID="160">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+                <Position x="1120" y="683" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Passwords />
+                  <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">\\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\Language ISO Codes.xlsx|`Sheet1$`</File>
+                  <FormatSpecificOptions>
+                    <FirstRowData>False</FirstRowData>
+                  </FormatSpecificOptions>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>Language ISO Codes.xlsx
+Table=`Sheet1$`</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+                <MetaInfo connection="Output">
+                  <RecordInfo>
+                    <Field name="Language" size="255" source="File: \\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\Language ISO Codes.xlsx|`Sheet1$`" type="V_WString" />
+                    <Field name="Language (local)" size="255" source="File: \\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\Language ISO Codes.xlsx|`Sheet1$`" type="V_WString" />
+                    <Field name="Wiki" size="255" source="File: \\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\Language ISO Codes.xlsx|`Sheet1$`" type="V_String" />
+                  </RecordInfo>
+                </MetaInfo>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+            </Node>
+            <Node ToolID="161">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+                <Position x="1192" y="587" />
+              </GuiSettings>
+              <Properties>
+                <Configuration joinByRecordPos="False">
+                  <JoinInfo connection="Left">
+                    <Field field="Language" />
+                  </JoinInfo>
+                  <JoinInfo connection="Right">
+                    <Field field="Wiki" />
+                  </JoinInfo>
+                  <SelectConfiguration>
+                    <Configuration outputConnection="Join">
+                      <OrderChanged value="False" />
+                      <SelectFields>
+                        <SelectField field="Right_Language" selected="True" rename="Right_Language" />
+                        <SelectField field="Right_Language family" selected="False" />
+                        <SelectField field="Right_ISO Code 639‑1" selected="False" />
+                        <SelectField field="*Unknown" selected="True" />
+                      </SelectFields>
+                    </Configuration>
+                  </SelectConfiguration>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+            </Node>
+            <Node ToolID="162">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+                <Position x="1384" y="587" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <SortInfo locale="0">
+                    <Field field="Count" order="Descending" />
+                  </SortInfo>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>Count - Descending</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+            </Node>
+            <Node ToolID="163">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+                <Position x="1288" y="587" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <ByName_ErrorMode>Warning</ByName_ErrorMode>
+                  <ByName_OutputMode>All</ByName_OutputMode>
+                  <Mode>ByName</Mode>
+                  <SetOutputOrder value="False" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+            </Node>
+            <Node ToolID="164">
+              <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+                <Position x="1384" y="683" width="112.7585" height="38" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Caption>Container 164</Caption>
+                  <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+                  <Disabled value="False" />
+                  <Folded value="False" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <ChildNodes>
+                <Node ToolID="129">
+                  <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+                    <Position x="1490" y="712" />
+                  </GuiSettings>
+                  <Properties>
+                    <Configuration>
+                      <File FileFormat="25" MaxRecords="">\\BRUDATA-DFS.BE-XCB.NET.INTRA\YDrive\BusinessData\CTBE_BusinessManagement\06-Marketing\CIS_Alteryx_Tableau\E&amp;C\99 Production Dataset\4-Viz_Layer\CommoConnect\Static_Data_and_Configuration\Input\City Names Wikipedia Languages to exclude.xlsx|Sheet1</File>
+                      <Passwords />
+                      <FormatSpecificOptions>
+                        <AppendMap>
+                          <AppendMapping mode="ByName" />
+                        </AppendMap>
+                        <OutputOption>RemoveFile</OutputOption>
+                      </FormatSpecificOptions>
+                      <MultiFile value="False" />
+                    </Configuration>
+                    <Annotation DisplayMode="0">
+                      <Name />
+                      <DefaultAnnotationText>City Names Wikipedia Languages to exclude.xlsx
+Table=Sheet1</DefaultAnnotationText>
+                      <Left value="False" />
+                    </Annotation>
+                  </Properties>
+                  <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+                </Node>
+                <Node ToolID="137">
+                  <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+                    <Position x="1394" y="712" />
+                  </GuiSettings>
+                  <Properties>
+                    <Configuration>
+                      <Mode>Simple</Mode>
+                      <Simple>
+                        <Field>Count</Field>
+                        <Operator>&gt;</Operator>
+                        <Operands>
+                          <Operand>3</Operand>
+                        </Operands>
+                      </Simple>
+                    </Configuration>
+                    <Annotation DisplayMode="0">
+                      <Name />
+                      <DefaultAnnotationText>[Count] &gt; 3</DefaultAnnotationText>
+                      <Left value="False" />
+                    </Annotation>
+                  </Properties>
+                  <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+                </Node>
+              </ChildNodes>
+            </Node>
+          </ChildNodes>
+        </Node>
+        <Node ToolID="269">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1578" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Name" type="V_WString" size="60" expression="REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace([Name]&#xA;, &quot;Ä&quot;, &quot;ae&quot;),&quot;Ö&quot;,&quot;oe&quot;),&quot;Ü&quot;,&quot;ue&quot;),&quot;ß&quot;,&quot;ss&quot;),&quot;&quot;,&quot;&quot;),&quot;æ&quot;,&quot;ae&quot;),&quot;&quot;,&quot;ae&quot;),&quot;Þ&quot;,&quot;th&quot;),&quot;&quot;,&quot;ue&quot;),&quot;Ø&quot;,&quot;OE&quot;),'&quot;',&quot;&quot;),&quot; &quot;,&quot; &quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;&quot;,&quot;&quot;),&quot;́&quot;,&quot;&quot;),&quot;̤&quot;,&quot;&quot;),&quot;'&quot;,&quot;&quot;),&quot;ǣ&quot;,&quot;a&quot;),&quot;ṳ&quot;,&quot;u&quot;),'Ƚ','L')&#xA;&#xA;// REGEX_Replace(" />
+                <FormulaField field="Name" type="V_WString" size="60" expression="Uppercase(Trim([Name]))" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Transform Special Chars</AnnotationText>
+              <DefaultAnnotationText>Name=REGEX_Replace(REGEX_Replace(REGEX_Replace(REGEX_Replace(...
+Name=Uppercase(Trim([Name]))</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="270">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+            <Position x="1278" y="666" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Name</Field>
+              <RegExExpression value="\d" />
+              <CaseInsensitve value="True" />
+              <Method>Replace</Method>
+              <Replace expression="">
+                <CopyUnmatched value="True" />
+              </Replace>
+              <ParseSimple>
+                <SplitToRows value="False" />
+                <RootName>Name</RootName>
+                <NumFields value="3" />
+                <ErrorHandling>Warn</ErrorHandling>
+              </ParseSimple>
+              <ParseComplex>
+                <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+              </ParseComplex>
+              <Match>
+                <Field>Name_Matched</Field>
+                <ErrorUnmatched value="False" />
+              </Match>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Remove numbers</AnnotationText>
+              <DefaultAnnotationText><![CDATA[Replace:
+\d
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+        </Node>
+        <Node ToolID="271">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+            <Position x="1386" y="666" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Name</Field>
+              <RegExExpression value="\s.\s" />
+              <CaseInsensitve value="True" />
+              <Method>Replace</Method>
+              <Replace expression=" ">
+                <CopyUnmatched value="True" />
+              </Replace>
+              <ParseSimple>
+                <SplitToRows value="False" />
+                <RootName>Name</RootName>
+                <NumFields value="3" />
+                <ErrorHandling>Warn</ErrorHandling>
+              </ParseSimple>
+              <ParseComplex>
+                <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+              </ParseComplex>
+              <Match>
+                <Field>Name_Matched</Field>
+                <ErrorUnmatched value="False" />
+              </Match>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Remove one Characte words</AnnotationText>
+              <DefaultAnnotationText><![CDATA[Replace:
+\s.\s
+ ]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+        </Node>
+        <Node ToolID="272">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+            <Position x="1482" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldFind>Name</FieldFind>
+              <FieldSearch>Target</FieldSearch>
+              <ReplaceFoundField>Replace</ReplaceFoundField>
+              <FindMode>FindAny</FindMode>
+              <NoCase value="False" />
+              <MatchWholeWord value="False" />
+              <ReplaceMode>Replace</ReplaceMode>
+              <ReplaceMultipleFound value="True" />
+              <ReplaceAppendFields />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Replace Whitespaces and spec, Char</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+        </Node>
+        <Node ToolID="274">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="1374" y="786" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">\Replace Character List.xlsx</File>
+              <FormatSpecificOptions>
+                <FirstRowData>False</FirstRowData>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Replace Character List.xlsx</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="275">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1974" y="702" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>D:\Alteryx_Temp\Temp\Engine_1680_c8ef1cbd775d4031a84be45496b8a1c9_\Engine_5604_37de72062ef040a4b96915105cd608ec_.yxdb</TempFile>
+              <Layout>
+                <View1>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="277">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1098" y="666" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Name" type="V_WString" size="60" expression="uppercase([Alternate City Name])" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Name=uppercase([Alternate City Name])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="278">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="1026" y="786" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">\City Names Wikipedia Languages to exclude.xlsx|Sheet1</File>
+              <FormatSpecificOptions>
+                <FirstRowData>False</FirstRowData>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>City Names Wikipedia Languages to exclude.xlsx
+Table=Sheet1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="279">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1194" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="Language" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="Language" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_Language" selected="True" rename="Right_Language" />
+                    <SelectField field="Right_Right_Language" selected="True" rename="Right_Right_Language" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Exclude Languages</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="280">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1698" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Name" type="V_WString" size="60" expression="ConvertToCodePage([Name], 20127 )" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Convert to ASCII Code page</AnnotationText>
+              <DefaultAnnotationText>Name=ConvertToCodePage([Name], 20127 )</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="281">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1890" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="Alternate City Name" selected="False" />
+                <SelectField field="City Name EN ASCII" selected="True" />
+                <SelectField field="Country ISO Code 2d" selected="True" />
+                <SelectField field="Inhabitants" selected="True" />
+                <SelectField field="Language" selected="False" />
+                <SelectField field="Name" selected="True" rename="City Name Alternate" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="282">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2502" y="726" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">\City Names Wikipedia prepared.yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>City Names Wikipedia prepared.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="295">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="2082" y="618" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="City Name EN ASCII" />
+                <Field field="Country ISO Code 2d" />
+                <Field field="Inhabitants" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="City Name EN ASCII" />
+                <Field field="Country ISO Code 2d" />
+                <Field field="Inhabitants" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_City Name EN ASCII" selected="False" />
+                    <SelectField field="Right_Country ISO Code 2d" selected="False" />
+                    <SelectField field="Right_Inhabitants" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="296">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1134" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Inhabitants" action="GroupBy" rename="Inhabitants" />
+                <SummarizeField field="Country ISO Code 2d" action="GroupBy" rename="Country ISO Code 2d" />
+                <SummarizeField field="City Name EN ASCII" action="GroupBy" rename="City Name EN ASCII" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>dedupe</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="297">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="2178" y="618" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="298">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1230" y="558" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>D:\Alteryx_Temp\Temp\Engine_1680_c8ef1cbd775d4031a84be45496b8a1c9_\Engine_5604_cac9f8c6854f47e3a8fd85b997914ffa_.yxdb</TempFile>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="299">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="2550" y="570" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>D:\Alteryx_Temp\Temp\Engine_1680_c8ef1cbd775d4031a84be45496b8a1c9_\Engine_5604_7914476968a547e1b79ef0409a70b91b_.yxdb</TempFile>
+              <Layout>
+                <View1>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="300">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="2454" y="570" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="Country ISO Code 2d" order="Ascending" />
+                <Field field="City Name EN ASCII" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Country ISO Code 2d - Ascending
+City Name EN ASCII - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="301">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1986" y="642" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="City Name EN ASCII" action="GroupBy" rename="City Name EN ASCII" />
+                <SummarizeField field="Country ISO Code 2d" action="GroupBy" rename="Country ISO Code 2d" />
+                <SummarizeField field="Inhabitants" action="GroupBy" rename="Inhabitants" />
+                <SummarizeField field="City Name Alternate" action="GroupBy" rename="City Name Alternate" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>dedupe</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="614">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="2262.001" y="618" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="City Name EN ASCII" type="V_WString" size="60" expression="Replace([City Name EN ASCII],&quot;CITY OF &quot;,&quot;&quot;)" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>City Name EN ASCII=Replace([City Name EN ASCII],"CITY OF ","")</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="618">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1794" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>Name</Field>
+                <Operator>NotContains</Operator>
+                <Operands>
+                  <Operand>?</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!Contains([Name],"?")</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="719">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2358" y="618" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Inhabitants" selected="True" rename="City Population" type="String" size="20" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="268">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="54" y="54" width="3547" height="425" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>City Name Integration of sources</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="265">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="64.00013" y="83.00037" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">\City Names Wikipedia prepared.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>City Names Wikipedia prepared.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="267">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="74.00014" y="232" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">\City Names Geonames.org prepared.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>City Names Geonames.org prepared.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="387">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="664.0001" y="263.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">\City Names French List prepared.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>City Names French List prepared.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="547">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="1276" y="347" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">\City Names French Spelling Wikipedia.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>City Names French Spelling Wikipedia.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="548">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="1828" y="335.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">\City Names Manual Input - Alternate Spelling.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>City Names Manual Input - Alternate Spelling.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="549">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="2056" y="335.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">\City Names Manual Input - Additional Cities.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>City Names Manual Input - Additional Cities.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="550">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="206.0003" y="195.9997" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="Country ISO Code 2d" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="Country ISO Code 2d" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_Country ISO Code 2d" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Check if country is covered by Wikipedia</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="551">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="134.0002" y="160.0002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Country ISO Code 2d" action="GroupBy" rename="Country ISO Code 2d" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Country</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="552">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="304.0003" y="155" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="City Name EN ASCII" />
+                <Field field="Country ISO Code 2d" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="City Names ASCII Code" />
+                <Field field="Country ISO Code 2d" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_City Names ASCII Code" selected="False" />
+                    <SelectField field="Right_Country ISO Code 2d" selected="False" />
+                    <SelectField field="Right_City Population" selected="False" />
+                    <SelectField field="Right_Country ISO Code 2d2" selected="False" rename="Right_Country ISO Code 2d2" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ASCII available?</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="555">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="700.0001" y="83" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <AutoResetMode>ByName</AutoResetMode>
+              <MultiMetaInfo>
+                <MetaInfo name="#1">
+                  <RecordInfo>
+                    <Field description="TextToColumns: Parsed from DownloadData" name="City Population" size="20" source="Summarize: GroupBy - Inhabitants" type="V_WString" column="1" />
+                    <Field name="Country ISO Code 2d" size="5" source="Summarize: GroupBy - Country ISO Code 2d" type="String" column="2" />
+                    <Field name="City Name EN ASCII" size="60" source="Summarize: GroupBy - City Name EN ASCII" type="V_WString" column="3" />
+                    <Field name="City Name Alternate" size="60" source="Summarize: GroupBy - City Name Alternate" type="V_WString" column="4" />
+                  </RecordInfo>
+                </MetaInfo>
+                <MetaInfo name="#2">
+                  <RecordInfo>
+                    <Field name="City Population" source="Summarize: GroupBy - City Population" type="Int32" column="1" />
+                    <Field name="Country ISO Code 2d" size="5" source="Summarize: GroupBy - Country ISO Code 2d" type="V_String" column="2" />
+                    <Field name="City Name EN ASCII" size="59" source="Summarize: GroupBy - City Names ASCII Code" type="V_String" column="3" />
+                    <Field name="City Name Alternate" size="60" source="Summarize: GroupBy - Name" type="V_WString" column="4" />
+                  </RecordInfo>
+                </MetaInfo>
+              </MultiMetaInfo>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ManualDelayed</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Add Alternative Spellings from geonames</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="556">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="3532" y="155" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>D:\Alteryx_Temp\Temp\Engine_7700_b2b258edca7147178ba0707d455f62de_\Engine_5604_3f06fccea4de44b8ba10849bd67f77fe_.yxdb</TempFile>
+              <Layout>
+                <View1>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="558">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="604.0002" y="119.0002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="559">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="796.0002" y="179.0002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Merge Wikipedia and Geonames</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="560">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="544.0001" y="227.0004" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="City Names ASCII Code" selected="True" rename="City Name EN ASCII" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="561">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="964.0001" y="250.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="City Name EN ASCII" />
+                <Field field="Country ISO Code 2d" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="City Name EN ASCII" />
+                <Field field="Country ISO Code 2d" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_Country ISO Code 2d" selected="False" />
+                    <SelectField field="Right_City Name EN ASCII" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ASCII Available?</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="564">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1156" y="239" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="City Name Alternate" />
+                <Field field="Country ISO Code 2d" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="City Name Alternate" />
+                <Field field="Country ISO Code 2d" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_City Name Alternate" selected="False" />
+                    <SelectField field="Right_City Name EN ASCII" selected="False" />
+                    <SelectField field="Right_Country ISO Code 2d" selected="False" />
+                    <SelectField field="Right_City Population" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>New Alt Spelling</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="566">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1276" y="179" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Additional Alt Spelling France</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="567">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="758.0002" y="267.9998" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="City Name ASCII" selected="True" rename="City Name EN ASCII" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="568">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1456" y="287.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name EN ASCII" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name EN ASCII" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_City Name EN ASCII" selected="False" />
+                    <SelectField field="Right_Country ISO Code 2d" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ASCII Name correct?</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="569">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1768" y="179" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Additional Alt Spelling from Wikipedia</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="570">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1744" y="311.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>D:\Alteryx_Temp\Temp\Engine_7700_b2b258edca7147178ba0707d455f62de_\Engine_5604_7ad1cac8088948eebc054391938c1812_.yxdb</TempFile>
+              <Layout>
+                <View1>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="571">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1948" y="251" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name EN ASCII" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name EN ASCII" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_City Name EN ASCII" selected="False" />
+                    <SelectField field="Right_Country ISO Code 2d" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ASCII Name correct?</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="572">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="2056" y="191" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Additional Alt Spelling from Wikipedia</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="573">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1636" y="251" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name Alternate" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name Alternate" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_City Name EN ASCII" selected="False" />
+                    <SelectField field="Left_Country ISO Code 2d" selected="False" />
+                    <SelectField field="Left_City Name Alternate" selected="False" />
+                    <SelectField field="Right_City Population" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Additional Alt. Spelling?</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="574">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="2212" y="263.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name EN ASCII" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name EN ASCII" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_City Name EN ASCII" selected="False" />
+                    <SelectField field="Left_Country ISO Code 2d" selected="False" />
+                    <SelectField field="Right_City Population" selected="True" rename="Right_City Population" />
+                    <SelectField field="Left_City Name Alternate" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ASCII already in?</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="576">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="2322" y="186" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <AutoResetMode>ByName</AutoResetMode>
+              <MultiMetaInfo>
+                <MetaInfo name="#1">
+                  <RecordInfo>
+                    <Field name="City Name EN ASCII" size="60" source="Summarize: (Multiple Sources)" type="V_WString" column="1" />
+                    <Field name="Country ISO Code 2d" size="5" source="Summarize: GroupBy - Country ISO Code 2d" type="V_String" column="2" />
+                    <Field name="City Population" size="20" source="Summarize: (Multiple Sources)" type="V_WString" column="3" />
+                    <Field name="City Name Alternate" size="60" source="Summarize: (Multiple Sources)" type="V_WString" column="4" />
+                  </RecordInfo>
+                </MetaInfo>
+                <MetaInfo name="#2">
+                  <RecordInfo>
+                    <Field name="City Name EN ASCII" size="60" source="Summarize: GroupBy - City Name EN ASCII" type="V_WString" column="1" />
+                    <Field name="Country ISO Code 2d" size="255" source="Summarize: GroupBy - Country ISO Code 2d" type="V_String" column="2" />
+                    <Field name="City Population" source="File: \\my.cib.echonet\coverage\gcs\Europe\SmartDataProject\CommoConnect Germany Pilot Exchange\City Matching\City Names - Additional Entries.xlsx|Sheet1" type="Double" column="3" />
+                    <Field name="City Name Alternate" size="60" source="Summarize: GroupBy - City Name Alternate" type="V_WString" column="4" />
+                  </RecordInfo>
+                </MetaInfo>
+              </MultiMetaInfo>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ManualDelayed</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="587">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="2886" y="150" width="492" height="205" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>Cleanup City Population</Caption>
+              <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+              <Disabled value="False" />
+              <Folded value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="578">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+                <Position x="2911" y="194" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <FormulaFields>
+                    <FormulaField field="City Population" type="V_WString" size="23" expression="Replace([City Population],&quot;,&quot;,&quot;&quot;)" />
+                  </FormulaFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>City Population=Replace([City Population],",","")</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+            </Node>
+            <Node ToolID="579">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+                <Position x="3103" y="194" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="City Population" selected="False" type="Int32" size="4" />
+                    <SelectField field="City Population left over1" selected="True" rename="City Population" />
+                    <SelectField field="City Population left over2" selected="False" type="Int32" size="4" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+            </Node>
+            <Node ToolID="580">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+                <Position x="3007" y="194" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Field>City Population</Field>
+                  <NumFields value="2" />
+                  <ErrorHandling>Last</ErrorHandling>
+                  <RootName>City Population left over</RootName>
+                  <Delimeters value=" " />
+                  <Flags value="0" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+            </Node>
+            <Node ToolID="585">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+                <Position x="3199" y="194" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <FormulaFields>
+                    <FormulaField field="City Population" type="V_WString" size="23" expression="IF ReplaceChar([City Population],&quot;0123456789&quot;,&quot;&quot;) != &quot;&quot; THEN &quot;&quot; ELSE [City Population] ENDIF" />
+                  </FormulaFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Cleanup City Population</AnnotationText>
+                  <DefaultAnnotationText>City Population=IF ReplaceChar([City Population],"0123456789"...</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+            </Node>
+            <Node ToolID="586">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+                <Position x="3294" y="198" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="City Population" selected="True" type="Int64" size="8" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+            </Node>
+          </ChildNodes>
+        </Node>
+        <Node ToolID="588">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="508.0001" y="143.0002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="City Name Alternate" />
+                <Field field="Country ISO Code 2d" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="City Name Alternate" />
+                <Field field="Country ISO Code 2d" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_Country ISO Code 2d" selected="False" />
+                    <SelectField field="Right_City Name EN ASCII" selected="False" />
+                    <SelectField field="Right_City Population" selected="False" />
+                    <SelectField field="Right_City Name Alternate" selected="False" />
+                    <SelectField field="Right_City Names ASCII Code" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>New Alt Spelling</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="589">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="892.0001" y="226.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="City Name EN ASCII" action="GroupBy" rename="City Name EN ASCII" />
+                <SummarizeField field="Country ISO Code 2d" action="GroupBy" rename="Country ISO Code 2d" />
+                <SummarizeField field="City Population" action="First" rename="City Population" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ASCII?</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="590">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1072" y="263.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>[City Name EN ASCII] != [City Name Alternate]</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ALT Different
+than ASCII</AnnotationText>
+              <DefaultAnnotationText>[City Name EN ASCII] != [City Name Alternate]</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="591">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="220" y="131.0002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Country ISO Code 2d" action="GroupBy" rename="Country ISO Code 2d" />
+                <SummarizeField field="City Name EN ASCII" action="GroupBy" rename="City Name EN ASCII" />
+                <SummarizeField field="City Population" action="First" rename="City Population" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ASCII</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="592">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="400.0002" y="154.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>[City Name EN ASCII] != [City Name Alternate]</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ALT Different
+than ASCII</AnnotationText>
+              <DefaultAnnotationText>[City Name EN ASCII] != [City Name Alternate]</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="593">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="616.0001" y="179.0002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>D:\Alteryx_Temp\Temp\Engine_7700_b2b258edca7147178ba0707d455f62de_\Engine_5604_eb46ca536571483597ec96114d205901_.yxdb</TempFile>
+              <Layout>
+                <View1>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="597">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1372" y="239.0002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="City Name EN ASCII" action="GroupBy" rename="City Name EN ASCII" />
+                <SummarizeField field="Country ISO Code 2d" action="GroupBy" rename="Country ISO Code 2d" />
+                <SummarizeField field="City Population" action="First" rename="City Population" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ASCII?</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="598">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1540" y="299.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>[City Name EN ASCII] != [City Name Alternate]</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ALT Different
+than ASCII</AnnotationText>
+              <DefaultAnnotationText>[City Name EN ASCII] != [City Name Alternate]</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="599">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1264" y="287" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>D:\Alteryx_Temp\Temp\Engine_7700_b2b258edca7147178ba0707d455f62de_\Engine_5604_6a7dd3aec5b44a889d29eadf65252bf6_.yxdb</TempFile>
+              <Layout>
+                <View1>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="600">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1864" y="239" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="City Name EN ASCII" action="GroupBy" rename="City Name EN ASCII" />
+                <SummarizeField field="Country ISO Code 2d" action="GroupBy" rename="Country ISO Code 2d" />
+                <SummarizeField field="City Population" action="First" rename="City Population" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ASCII?</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="601">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1372" y="347.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>City Name Alternate</Field>
+                <Operator>IsNotEmpty</Operator>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!IsEmpty([City Name Alternate])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="609">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="366" y="282.0001" width="262" height="165.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>Extrawurst</Caption>
+              <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+              <Disabled value="False" />
+              <Folded value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="603">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+                <Position x="376" y="366.0001" />
+              </GuiSettings>
+              <Properties>
+                <Configuration joinByRecordPos="False">
+                  <JoinInfo connection="Left">
+                    <Field field="City Name Alternate" />
+                    <Field field="Country ISO Code 2d" />
+                  </JoinInfo>
+                  <JoinInfo connection="Right">
+                    <Field field="City Names ASCII Code" />
+                    <Field field="Country ISO Code 2d" />
+                  </JoinInfo>
+                  <SelectConfiguration>
+                    <Configuration outputConnection="Join">
+                      <OrderChanged value="False" />
+                      <SelectFields>
+                        <SelectField field="Left_Country ISO Code 2d" selected="False" />
+                        <SelectField field="Left_City Name Alternate" selected="False" />
+                        <SelectField field="Right_City Population" selected="False" />
+                        <SelectField field="*Unknown" selected="True" />
+                      </SelectFields>
+                    </Configuration>
+                  </SelectConfiguration>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+            </Node>
+            <Node ToolID="610">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+                <Position x="448" y="366.0001" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="City Names ASCII Code" selected="True" rename="City Name EN ASCII" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+            </Node>
+            <Node ToolID="616">
+              <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+                <Position x="388.0002" y="311.0001" width="179.9998" height="43" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Text>Here we might add City Names to ASCII which are duplicates</Text>
+                  <Font name="Segoe UI" size="8.25" style="0" />
+                  <TextColor name="Black" />
+                  <FillColor name="White" />
+                  <Shape shape="0" />
+                  <Justification Justification="4" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+            </Node>
+            <Node ToolID="720">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+                <Position x="519.9999" y="347" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Mode>Simple</Mode>
+                  <Simple>
+                    <Field>Country ISO Code 2d</Field>
+                    <Operator>=</Operator>
+                    <Operands>
+                      <Operand>DE</Operand>
+                    </Operands>
+                  </Simple>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>[Country ISO Code 2d] = "DE"</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+            </Node>
+          </ChildNodes>
+        </Node>
+        <Node ToolID="612">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="2140" y="251" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="City Name EN ASCII" action="GroupBy" rename="City Name EN ASCII" />
+                <SummarizeField field="Country ISO Code 2d" action="GroupBy" rename="Country ISO Code 2d" />
+                <SummarizeField field="City Population" action="First" rename="City Population" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ASCII?</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="707">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="2514" y="270.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name EN ASCII" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name ASCII" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_City Name ASCII" selected="False" />
+                    <SelectField field="Right_Country ISO Code 2d" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Find ASCII Name for Alt</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="708">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="2346" y="318.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">\City Names Belgium Post Codes.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>City Names Belgium Post Codes.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="709">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="2814" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Add Alt from Postcode File</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="710">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="2610" y="270.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name EN ASCII" />
+                <Field field="City Name Alternate" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name EN ASCII" />
+                <Field field="City Name Alternate" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_City Name EN ASCII" selected="False" />
+                    <SelectField field="Left_Country ISO Code 2d" selected="False" />
+                    <SelectField field="Left_City Population" selected="False" />
+                    <SelectField field="Left_City Name Alternate" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Check if Alt is already in there</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="714">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="2418" y="222" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="City Name EN ASCII" action="GroupBy" rename="City Name EN ASCII" />
+                <SummarizeField field="Country ISO Code 2d" action="GroupBy" rename="Country ISO Code 2d" />
+                <SummarizeField field="City Population" action="First" rename="City Population" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ASCII?</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="715">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="2610" y="378" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name Alternate" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="Country ISO Code 2d" />
+                <Field field="City Name ASCII" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_City Name Alternate" selected="False" />
+                    <SelectField field="Right_City Name ASCII" selected="False" />
+                    <SelectField field="Right_Country ISO Code 2d" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Find ASCII Name 
+for Alt 2</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="721">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2694" y="390" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="City Name ASCII" selected="True" rename="City Name EN ASCII" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="115" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="114" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="157" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="47" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="47" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="63" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="114" Connection="Output" />
+      <Destination ToolID="116" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="115" Connection="Output" />
+      <Destination ToolID="116" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="116" Connection="Output" />
+      <Destination ToolID="63" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="157" Connection="Output" />
+      <Destination ToolID="153" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="157" Connection="Output" />
+      <Destination ToolID="167" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="167" Connection="Output" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="167" Connection="Output" />
+      <Destination ToolID="277" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="167" Connection="Output" />
+      <Destination ToolID="296" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="153" Connection="True" />
+      <Destination ToolID="166" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="165" Connection="Output" />
+      <Destination ToolID="166" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="166" Connection="Join" />
+      <Destination ToolID="155" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="139" Connection="True" />
+      <Destination ToolID="142" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="139" Connection="True" />
+      <Destination ToolID="141" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="141" Connection="Output" />
+      <Destination ToolID="145" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="141" Connection="Output" />
+      <Destination ToolID="146" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="144" Connection="Output" />
+      <Destination ToolID="139" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="145" Connection="Output" />
+      <Destination ToolID="161" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="160" Connection="Output" />
+      <Destination ToolID="161" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="134" Connection="Output" />
+      <Destination ToolID="144" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="135" Connection="Output" />
+      <Destination ToolID="134" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="161" Connection="Join" />
+      <Destination ToolID="163" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="161" Connection="Left" />
+      <Destination ToolID="163" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="162" Connection="Output" />
+      <Destination ToolID="140" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="163" Connection="Output" />
+      <Destination ToolID="162" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="163" Connection="Output" />
+      <Destination ToolID="137" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="137" Connection="True" />
+      <Destination ToolID="129" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="269" Connection="Output" />
+      <Destination ToolID="280" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="270" Connection="Output" />
+      <Destination ToolID="271" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="271" Connection="Output" />
+      <Destination ToolID="272" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="274" Connection="Output" />
+      <Destination ToolID="272" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="272" Connection="Output" />
+      <Destination ToolID="269" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="277" Connection="Output" />
+      <Destination ToolID="279" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="278" Connection="Output" />
+      <Destination ToolID="279" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="279" Connection="Left" />
+      <Destination ToolID="270" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="280" Connection="Output" />
+      <Destination ToolID="618" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="281" Connection="Output" />
+      <Destination ToolID="275" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="281" Connection="Output" />
+      <Destination ToolID="301" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="295" Connection="Join" />
+      <Destination ToolID="297" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="295" Connection="Left" />
+      <Destination ToolID="297" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="296" Connection="Output" />
+      <Destination ToolID="295" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="301" Connection="Output" />
+      <Destination ToolID="295" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="296" Connection="Output" />
+      <Destination ToolID="298" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="297" Connection="Output" />
+      <Destination ToolID="614" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="300" Connection="Output" />
+      <Destination ToolID="299" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="614" Connection="Output" />
+      <Destination ToolID="719" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="618" Connection="True" />
+      <Destination ToolID="281" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="719" Connection="Output" />
+      <Destination ToolID="300" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="719" Connection="Output" />
+      <Destination ToolID="282" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="265" Connection="Output" />
+      <Destination ToolID="551" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="265" Connection="Output" />
+      <Destination ToolID="555" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="558" Connection="Output" />
+      <Destination ToolID="555" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="265" Connection="Output" />
+      <Destination ToolID="588" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="592" Connection="True" />
+      <Destination ToolID="588" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="265" Connection="Output" />
+      <Destination ToolID="591" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="265" Connection="Output" />
+      <Destination ToolID="603" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="552" Connection="Right" />
+      <Destination ToolID="603" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="267" Connection="Output" />
+      <Destination ToolID="550" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="551" Connection="Output" />
+      <Destination ToolID="550" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="387" Connection="Output" />
+      <Destination ToolID="567" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="547" Connection="Output" />
+      <Destination ToolID="601" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="548" Connection="Output" />
+      <Destination ToolID="571" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="600" Connection="Output" />
+      <Destination ToolID="571" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="549" Connection="Output" />
+      <Destination ToolID="574" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="612" Connection="Output" />
+      <Destination ToolID="574" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="550" Connection="Join" />
+      <Destination ToolID="552" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="591" Connection="Output" />
+      <Destination ToolID="552" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="550" Connection="Right" />
+      <Destination ToolID="560" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="552" Connection="Join" />
+      <Destination ToolID="592" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="555" Connection="Output" />
+      <Destination ToolID="559" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="560" Connection="Output" />
+      <Destination ToolID="559" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="720" Connection="False" />
+      <Destination ToolID="559" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="559" Connection="Output" />
+      <Destination ToolID="566" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="564" Connection="Right" />
+      <Destination ToolID="566" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="559" Connection="Output" />
+      <Destination ToolID="564" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="590" Connection="True" />
+      <Destination ToolID="564" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="559" Connection="Output" />
+      <Destination ToolID="589" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="561" Connection="Join" />
+      <Destination ToolID="590" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="564" Connection="Right" />
+      <Destination ToolID="599" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="566" Connection="Output" />
+      <Destination ToolID="569" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="573" Connection="Right" />
+      <Destination ToolID="569" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="566" Connection="Output" />
+      <Destination ToolID="573" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="598" Connection="True" />
+      <Destination ToolID="573" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="566" Connection="Output" />
+      <Destination ToolID="597" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="567" Connection="Output" />
+      <Destination ToolID="561" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="589" Connection="Output" />
+      <Destination ToolID="561" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="568" Connection="Join" />
+      <Destination ToolID="598" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="569" Connection="Output" />
+      <Destination ToolID="572" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="571" Connection="Join" />
+      <Destination ToolID="572" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="569" Connection="Output" />
+      <Destination ToolID="600" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="572" Connection="Output" />
+      <Destination ToolID="576" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="574" Connection="Right" />
+      <Destination ToolID="576" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="572" Connection="Output" />
+      <Destination ToolID="612" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="573" Connection="Right" />
+      <Destination ToolID="570" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="576" Connection="Output" />
+      <Destination ToolID="709" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="710" Connection="Right" />
+      <Destination ToolID="709" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="715" Connection="Join" />
+      <Destination ToolID="709" Connection="Input" />
+    </Connection>
+    <Connection name="#4">
+      <Origin ToolID="721" Connection="Output" />
+      <Destination ToolID="709" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="576" Connection="Output" />
+      <Destination ToolID="710" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="707" Connection="Join" />
+      <Destination ToolID="710" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="576" Connection="Output" />
+      <Destination ToolID="714" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="576" Connection="Output" />
+      <Destination ToolID="715" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="707" Connection="Right" />
+      <Destination ToolID="715" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="578" Connection="Output" />
+      <Destination ToolID="580" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="579" Connection="Output" />
+      <Destination ToolID="585" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="580" Connection="Output" />
+      <Destination ToolID="579" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="585" Connection="Output" />
+      <Destination ToolID="586" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="586" Connection="Output" />
+      <Destination ToolID="556" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="588" Connection="Right" />
+      <Destination ToolID="558" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="588" Connection="Right" />
+      <Destination ToolID="593" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="597" Connection="Output" />
+      <Destination ToolID="568" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="601" Connection="True" />
+      <Destination ToolID="568" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="603" Connection="Right" />
+      <Destination ToolID="610" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="610" Connection="Output" />
+      <Destination ToolID="720" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="708" Connection="Output" />
+      <Destination ToolID="707" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="714" Connection="Output" />
+      <Destination ToolID="707" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="709" Connection="Output" />
+      <Destination ToolID="578" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="715" Connection="Right" />
+      <Destination ToolID="721" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>00_R2S_City Names prepared for Fuzzy Match</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
