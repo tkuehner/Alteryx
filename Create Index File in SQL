@@ -1,0 +1,6 @@
+CREATE NONCLUSTERED INDEX IX_Address_PostalCode  
+ON Person.Address (PostalCode)  
+INCLUDE (AddressLine1, AddressLine2, City, StateProvinceID); 
+
+CREATE CLUSTERED INDEX IX_TestTable_TestCol1   
+    ON dbo.TestTable (TestCol1); 
