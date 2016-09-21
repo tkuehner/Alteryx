@@ -3,19 +3,17 @@
   <Nodes>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="150" y="102" />
+        <Position x="114" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <NumRows value="1" />
           <Fields>
-            <Field name="Target" />
             <Field name="ID" />
-            <Field name="Original" />
+            <Field name="Text Line" />
           </Fields>
           <Data>
             <r>
-              <c>Garbage Bangkok test garbage thailand</c>
               <c>1</c>
               <c>Garbage Bangkok test garbage thailand</c>
             </r>
@@ -31,7 +29,7 @@
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="162" y="210" />
+        <Position x="414" y="474" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -49,6 +47,7 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name>Country List</Name>
+          <AnnotationText>Country List</AnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
@@ -57,7 +56,7 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="258" y="282" />
+        <Position x="510" y="534" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -73,6 +72,7 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name>City List</Name>
+          <AnnotationText>City List</AnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
@@ -81,7 +81,7 @@
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="990" y="126" />
+        <Position x="1242" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -103,7 +103,7 @@
     </Node>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
-        <Position x="306" y="126" />
+        <Position x="558" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -129,7 +129,7 @@ Country Names</AnnotationText>
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="594" y="126" />
+        <Position x="846" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -153,7 +153,7 @@ Country Names</AnnotationText>
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="498" y="138" />
+        <Position x="750" y="354" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -173,7 +173,7 @@ Country Names</AnnotationText>
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="690" y="126" />
+        <Position x="942" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -193,7 +193,7 @@ City Name=Trim([City Name])</DefaultAnnotationText>
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="786" y="126" />
+        <Position x="1038" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -213,7 +213,7 @@ Length - Descending</DefaultAnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="882" y="126" />
+        <Position x="1134" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -235,7 +235,7 @@ out of Line 4</AnnotationText>
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
-        <Position x="402" y="126" />
+        <Position x="654" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -261,15 +261,78 @@ City Names</AnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
     </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="426" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Target</Field>
+          <NumFields value="1" />
+          <Delimeters value=" ,;." />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Split City 
+Column</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="198" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Text Line" selected="True" rename="Target" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="294" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Original" type="String" size="37" expression="[Target]" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Original=[Target]</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
       <Origin ToolID="9" Connection="Output" />
-      <Destination ToolID="1" Connection="Targets" />
+      <Destination ToolID="14" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="10" Connection="Output" />
       <Destination ToolID="1" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="1" Connection="Targets" />
     </Connection>
     <Connection>
       <Origin ToolID="11" Connection="Output" />
@@ -302,6 +365,14 @@ City Names</AnnotationText>
     <Connection>
       <Origin ToolID="7" Connection="Output" />
       <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
