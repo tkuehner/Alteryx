@@ -1,0 +1,3 @@
+// check workstream xml for unions set to manual configure (which stopps runners to work)
+// Auto: <Mode>ByName</Mode> 
+// Manual:  <Mode>ManualDelayed</Mode>
